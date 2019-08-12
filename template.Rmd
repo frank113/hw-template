@@ -1,0 +1,31 @@
+---
+output:
+  pdf_document:
+    highlight: haddock
+    template: template_format.tex
+    includes:
+      in_header: math_commands.txt
+    latex_engine: xelatex
+    keep_tex: true
+geometry: margin=0.75in
+fontsize: 11pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  eval = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.align = "center",
+  fig.pos = 'H',
+  fig.height = 3,
+  fig.width = 7
+)
+## knitr::opts_chunk$set(fig.height=3, fig.width=3, fig.cap="3in by 3in Picture""
+## set seed
+set.seed(1356)
+```
+
+
+
