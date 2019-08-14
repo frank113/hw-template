@@ -1,4 +1,9 @@
 ---
+author: Frank Kovacs
+title: RMarkdown Template
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+course: '36-200: Reasoning with Data'
+teacher: 'Philipp Burckhardt'
 output:
   pdf_document:
     highlight: haddock
@@ -27,5 +32,5 @@ knitr::opts_chunk$set(
 set.seed(1356)
 ```
 
-
+# Section 1
 

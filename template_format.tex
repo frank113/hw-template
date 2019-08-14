@@ -86,32 +86,38 @@ $endif$
 
 \usepackage[unicode=true]{hyperref}
 
+
 $if(colorlinks)$
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 $endif$
 
-%\hypersetup{
-%$if(title-meta)$
-%            pdftitle={$title-meta$},
-%$endif$
-%
-%$if(author-meta)$
-%            pdfauthor={$author-meta$},
-%$endif$
-%
-%$if(keywords)$
-%            pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
-%$endif$
-%
-%$if(colorlinks)$
-%            colorlinks=true,
-%            linkcolor=$if(linkcolor)$$linkcolor$$else$Maroon$endif$,
-%            citecolor=$if(citecolor)$$citecolor$$else$Blue$endif$,
-%            urlcolor=$if(urlcolor)$$urlcolor$$else$Blue$endif$,
-%$else$
-%            pdfborder={0 0 0},
-%$endif$
-%            breaklinks=true}
+%% Adding custom tags
+
+\hypersetup{
+$if(title-meta)$
+            pdftitle={$title-meta$},
+$endif$
+$if(author-meta)$
+            pdfauthor={$author-meta$},
+$endif$
+$if(course-meta)$
+            course={$course-meta$},
+$endif$
+$if(teacher-meta)$
+            teacher={$teacher-meta$},
+$endif$
+$if(keywords)$
+            pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+$endif$
+$if(colorlinks)$
+            colorlinks=true,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$Maroon$endif$,
+            citecolor=$if(citecolor)$$citecolor$$else$Blue$endif$,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$Blue$endif$,
+$else$
+            pdfborder={0 0 0},
+$endif$
+            breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 
 $if(verbatim-in-note)$
@@ -282,8 +288,8 @@ $endfor$
   
 %% Formal page formatting
 \pagestyle{fancy}
-\lhead{\hmwkAuthorName}
-\chead{\hmwkTitle}
+\lhead{$author-meta$}
+\chead{$title-meta$}
 \rhead{Page\ \thepage\ of\ \pageref{LastPage}}
 \lfoot{Carnegie Mellon University}
 % \cfoot{Page\ \thepage\ of\ \pageref{LastPage}}
@@ -292,12 +298,12 @@ $endfor$
 %% Title
 \title{
     % \vspace{1in}
-    \Huge{\Huge{\textmd{\textbf{\hmwkTitle}}}} \\
-    \LARGE{\hmwkAuthorName} \\
-    \LARGE{\hmwkClassInstructor} \\
-    \normalsize\small{Submitted\ on\ \hmwkDueDate}\\
+    \Huge{\Huge{\textmd{\textbf{$title-meta$}}}} \leavevmode \\
+    \LARGE{$author-meta$} \leavevmode \\
+    \LARGE{$teacher-meta$} \leavevmode \\
+    \normalsize\small{\date{$date$}}
         % \vspace{0.2in}\noindent\raggedright \small{Worked with \hmwkCollab} \\ 
-        % \vspace{3in}
+        % 
 }
 
 %% Commands for itle
